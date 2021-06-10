@@ -1,0 +1,12 @@
+.searchWrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.searchWrapper--btns{
+    justify-self: end;
+}
+
+.searchWrapper--searchField{
+    padding: 8px;
+}

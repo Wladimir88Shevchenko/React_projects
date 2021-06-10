@@ -1,0 +1,20 @@
+.done{
+    text-decoration: line-through !important;
+}
+
+
+.list-item{
+    color: rgb(120, 120, 120) !important;
+}
+
+
+.important{
+    font-weight: bold;
+    color: black !important;
+}
+
+.gridWrapper{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-gap: 10px;
+}

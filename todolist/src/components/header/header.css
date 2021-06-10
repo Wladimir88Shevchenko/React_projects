@@ -1,0 +1,9 @@
+.headerWrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.headerWrapper--textIndicators{
+    justify-self: end;
+    align-self: flex-end;
+}
