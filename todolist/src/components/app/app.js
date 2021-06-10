@@ -11,7 +11,7 @@ export default class App extends Component {
         todoData : [
             {label: 'Teach children math', important: false, key: 1, done: false},
             {label: 'Learn React', important: false, key: 2, done: false},
-            {label: 'Play computer', important: false, key: 3, done: false},
+            {label: 'Play guitare', important: false, key: 3, done: false},
             {label: 'Running', important: false, key: 4, done: false},
             {label: 'Learn Redux', important: false, key: 544, done: false},
             {label: 'Have a lunch', important: false, key: 6, done: false},
