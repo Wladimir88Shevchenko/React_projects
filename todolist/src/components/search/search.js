@@ -32,13 +32,13 @@ export default Search; */
 
 export default class Search extends React.Component {
 
-    state = {
+    /* state = {
         filterText: '',
-    }
+    } */
 
     onChangeFilter = (e) => {
         const filterText = e.target.value;
-        this.setState({filterText});
+        /* this.setState({filterText}); */
         this.props.onChangeFilterVelue(filterText);
 
     } 
@@ -50,10 +50,12 @@ export default class Search extends React.Component {
             className="searchWrapper--searchField" 
             placeholder="Type text for search" 
             onChange={this.onChangeFilter}
-            value={this.state.filterText}
+            /* value={this.state.filterText} */
             />
             <div className="searchWrapper--btns">
-                <SearchBtn  />
+                <SearchBtn 
+                onSortItems = {this.props.onSortItems} 
+                />
             </div>  
         </div>
         );

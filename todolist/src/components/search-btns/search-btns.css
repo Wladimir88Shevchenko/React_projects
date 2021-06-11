@@ -5,7 +5,12 @@ button{
     padding: 8px 15px;
 }
 
-button:hover{
-    color: rgb(49, 49, 49);
-    background-color: rgb(240, 240, 240);
+/* button:hover{
+    color: lightblue;
+    background-color: rgb(133, 133, 133);
+} */
+
+.clicked{
+    background-color: black;
+    color: lightblue;
 }

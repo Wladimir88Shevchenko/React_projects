@@ -17,6 +17,7 @@ export default class App extends Component {
             {label: 'Have a lunch', important: false, key: 6, done: false},
           ],
         filterText: '',
+        sortWord: '',
     };
 
     deleteItem = (id) => {
@@ -101,8 +102,34 @@ export default class App extends Component {
       return(filterElements);
     }
 
+    chooseSortElements = (todoData, sortWord) => {
+      let newData;
+      if(sortWord === "active"){
+        newData = todoData.filter((el) => el.done === false);
+      }else if(sortWord === "done"){
+        newData = todoData.filter((el) => el.done === true);
+      }else{
+        newData = todoData;
+      }
+      return(newData);
+    }
+
     onChangeFilterVelue = (filterText) => {
       this.setState({filterText});
+    }
+
+    onSortItems = (sortWord) => {
+      this.setState({sortWord});
+    }
+
+    chooseBestElements = (ar1, ar2) => {
+      let result = [];
+      ar1.forEach((e) => {
+        if(ar2.indexOf(e) >= 0){
+          result.push(e);
+        }
+      });
+      return(result);
     }
 
   
@@ -110,8 +137,10 @@ export default class App extends Component {
      
 
       render(){
-          const {todoData, filterText} = this.state,
+          const {todoData, filterText, sortWord} = this.state,
           visibleElements = this.chooseVisibleElements(todoData, filterText),
+          sortElements = this.chooseSortElements(todoData,sortWord),
+          finalElements = this.chooseBestElements(sortElements, visibleElements),
           doneCaunt = todoData.filter((e) => e.done === true).length,
           unDOneCount = todoData.length - doneCaunt;
         return(<div className="todoBox">
@@ -123,9 +152,12 @@ export default class App extends Component {
                 /> */}
 
                 <Search
-                onChangeFilterVelue = {this.onChangeFilterVelue}/>
+                onChangeFilterVelue = {this.onChangeFilterVelue}
+                onSortItems = {this.onSortItems}
+                />
                 <List 
-                todo={visibleElements} 
+               /*  todo={visibleElements}  */
+               todo={finalElements}
                 onDeleted={this.deleteItem}  
                 onImportant={this.toogleImportant}
                 onDone={this.toogleDone}
